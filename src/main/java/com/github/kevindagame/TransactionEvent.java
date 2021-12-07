@@ -15,6 +15,8 @@ public class TransactionEvent implements Listener {
 
     @EventHandler
     public void onShopTrans(ShopPostTransactionEvent event) {
-        main.getDB().addTransaction(event.getResult());
+        if(event.getResult().getShopAction() == ShopManager.ShopAction.SELL || event.getResult().getShopAction() == ShopManager.ShopAction.SELL_ALL){
+            main.getDB().addTransaction(event.getResult());
+        }
     }
 }

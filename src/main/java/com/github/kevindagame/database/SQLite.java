@@ -17,14 +17,11 @@ public class SQLite extends Database{
         super(instance);
         dbname = plugin.getConfig().getString("SQLite.Filename", "shop_sales"); // Set the table name here e.g player_kills
     }
-
-    public String SQLiteCreateTokensTable = "CREATE TABLE IF NOT EXISTS shop_sales (" +
-            "`player` varchar(32) NOT NULL," +
+public String SQLiteCreateTokensTable = "CREATE TABLE IF NOT EXISTS shop_sales (" +
             "`item_name` varchar(32) NOT NULL," +
             "`amount` int(5) NOT NULL," +
-            "`is_buy` int(1) NOT NULL," +
-            "`transaction_time` DATETIME NOT NULL," +
-            "`id` INTEGER NOT NULL PRIMARY KEY" +
+            "`transaction_date` DATE NOT NULL," +
+            "PRIMARY KEY(item_name,transaction_date)" +
             ");";
 
 

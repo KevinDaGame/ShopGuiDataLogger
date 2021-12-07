@@ -24,7 +24,3 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Maven Builder for Spigot Plugin
-  # You may pin to the exact commit or the version.
-  # uses: JIN-InI/Maven-Builder-for-Spigot-Plugin@bcca0192e8e234541cf74a667375017ec03b42cc
-      uses: JIN-InI/Maven-Builder-for-Spigot-Plugin@1.0.0

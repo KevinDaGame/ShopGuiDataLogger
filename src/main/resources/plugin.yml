@@ -1,7 +1,14 @@
 name: 'ShopGuiDataLogger'
-version: 0.1
+version: 1.1
 main: com.github.kevindagame.ShopGuiDataLogger
 api-version: 1.16
 author: KevinDaGame
 description: Data logger for shopgui
+
+commands:
+  shopguidatalogger:
+    description: get data command
+    permission: sgdl.admin
+    aliases:
+      - sgdl
 

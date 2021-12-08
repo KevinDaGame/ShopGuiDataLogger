@@ -15,7 +15,6 @@ import java.sql.*;
 import java.util.logging.Level;
 
 public abstract class Database {
-    // The name of the table we created back in SQLite class.
     public String table = "shop_sales";
     public int tokens = 0;
     ShopGuiDataLogger plugin;

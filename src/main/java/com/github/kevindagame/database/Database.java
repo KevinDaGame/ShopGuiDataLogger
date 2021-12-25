@@ -16,7 +16,6 @@ import java.util.logging.Level;
 
 public abstract class Database {
     public String table = "shop_sales";
-    public int tokens = 0;
     ShopGuiDataLogger plugin;
     Connection connection;
 
@@ -45,7 +44,6 @@ public abstract class Database {
         PreparedStatement ps = null;
         try {
             conn = getSQLConnection();
-            String uuid = transaction.getPlayer().getUniqueId().toString();
             String item = transaction.getShopItem().getItem().getType().toString();
             int itemCount = transaction.getAmount();
             double sellPrice = transaction.getPrice();

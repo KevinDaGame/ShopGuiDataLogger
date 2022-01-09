@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>ShopGuiDataLogger</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>

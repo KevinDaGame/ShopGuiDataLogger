@@ -1,0 +1,6 @@
+dump:
+  query: "SELECT * FROM %table%"
+report:
+  query: "select item_name, sum(amount) as items_sold, sum(sell_price * amount) as total_value from %table% \n where(transaction_date >= date(CURRENT_DATE, '-7 days')) GROUP BY item_name;"
+itemreport:
+  query: "select transaction_date, sum(amount) as items_bought, sum(sell_price * amount) as total_value from %table% WHERE(item_name like '%param%') GROUP BY transaction_date;"

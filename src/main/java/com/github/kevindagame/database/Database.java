@@ -46,7 +46,7 @@ public abstract class Database {
             conn = getSQLConnection();
             String item = transaction.getShopItem().getItem().getType().toString();
             int itemCount = transaction.getAmount();
-            double sellPrice = transaction.getPrice();
+            double sellPrice = transaction.getPrice() / itemCount;
             ps = conn.prepareStatement("INSERT INTO shop_sales VALUES(\"" + item + "\", " + itemCount + ", date('now')\n" + ", " + sellPrice + ")" +
                     "  ON CONFLICT(item_name,transaction_date) DO UPDATE SET amount=amount+" + itemCount + ";");
 //
@@ -64,10 +64,23 @@ public abstract class Database {
                 plugin.getLogger().log(Level.SEVERE, Errors.sqlConnectionClose(), ex);
             }
         }
-        return;
 
     }
 
+    public ResultSet executeQuery(String query) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = getSQLConnection();
+            ps = conn.prepareStatement(query);
+            return ps.executeQuery();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    @Deprecated
     public boolean dumpData() {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -129,7 +142,7 @@ public abstract class Database {
             Error.close(plugin, ex);
         }
     }
-
+    @Deprecated
     public boolean report() {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -179,7 +192,7 @@ public abstract class Database {
             return false;
         }
     }
-
+    @Deprecated
     public boolean itemReport(String item) {
         Connection conn = null;
         PreparedStatement ps = null;
